@@ -17,15 +17,12 @@ const menu_button = createImage(require('./textures/gui/menu-button.png'));
 //INIT
 let game = new Game(gameProcess, 60,60,false);
 let win = new Window(document.querySelector('#gameCanvas'));
-//createGuis();
+createGuis(game);
 
 //EVENTS
 window.addEventListener('mousemove', function(evt){
-    win.mouseMove(evt);
+    win.mouseMove(evt,game);
 });
-
-let bttn = new Button(win.display,10,10,100,50,menu_button, 'No hej', true);
-let bckg = new Background(win.display,0,0,800,600, menu_background, true);
 
 //GAME LOOP
 function gameProcess(){
@@ -35,10 +32,19 @@ function gameProcess(){
             
         break;
         case false:
-            bckg.draw();
-
-            bttn.draw();
-            bttn.write();
+            game.guis[game.activeGui].elements.backgrounds.forEach((item,index) => {
+                item.draw();
+            });
+            game.guis[game.activeGui].elements.buttons.forEach((item,index) => {
+                item.draw();
+                item.write();
+            });
+            game.guis[game.activeGui].elements.inputs.forEach((item,index) => {
+                item.draw();
+            });
+            game.guis[game.activeGui].elements.sprites.forEach((item,index) => {
+                item.draw();
+            });
         break;
         default:
             console.log('Bad game isStarted status');
@@ -47,14 +53,19 @@ function gameProcess(){
 }
 
 //FUNCTIONS
-/*
-function createGuis(){
+
+function createGuis(game){
     game.guis.push(
         new Gui('main-menu', {
-            backgrounds: ,
-            buttons: ,
-            inputs: ,
-            images: 
-        });
+            backgrounds: [
+                new Background(win.display,0,0,800,600, menu_background, true)
+            ],
+            buttons: [
+                new Button(win.display,100,100,100,50,menu_button, 'No hej', true),
+                new Button(win.display,100,200,100,50,menu_button, 'No hejciaa', true)
+            ],
+            inputs: [],
+            sprites: []
+        })
     );
-}*/
+}

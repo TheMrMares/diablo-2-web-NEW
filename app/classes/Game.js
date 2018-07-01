@@ -6,6 +6,7 @@ export class Game {
         this.isStarted = isStarted;
         this.interval = window.setInterval(gameLoop, 1000/actualFPS);
         this.guis = [];
+        this.activeGui = 0;
     }
     refreshModifier() {
         this.modifierFPS = this.nativeFPS/this.actualFPS;
