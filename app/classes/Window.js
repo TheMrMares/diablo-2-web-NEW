@@ -7,4 +7,9 @@ export class Window {
         this.mx = null;
         this.my = null;
     }
+    mouseMove(evt){
+        let rect = this.canvas.getBoundingClientRect();
+        this.mx = evt.clientX-rect.left;
+        this.my = evt.clientY-rect.top;
+    }
 }
