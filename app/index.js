@@ -1,3 +1,6 @@
+//GLBOALS
+import G from './globals.js';
+import RES from './resources.js';
 //IMPORTS
 import 'styles/index.scss';
 
@@ -8,20 +11,19 @@ import {Window} from './classes/Window.js';
 import {Gui} from './classes/Gui.js';
 
 import {Button} from './classes/gui/Button.js';
-import { Background } from './classes/gui/Background.js';
+import {Background} from './classes/gui/Background.js';
 
-//RES
-const menu_background = createImage(require('./textures/gui/menu-background.png'));
-const menu_button = createImage(require('./textures/gui/menu-button.png'));
 
 //INIT
-let game = new Game(gameProcess, 60,60,false);
-let win = new Window(document.querySelector('#gameCanvas'));
-createGuis(game);
+G.game = new Game(gameProcess, 60,60,false);
+G.win = new Window(document.querySelector('#gameCanvas'));
+let game = G.game;
+let win = G.win
+createGuis();
 
 //EVENTS
 window.addEventListener('mousemove', function(evt){
-    win.mouseMove(evt,game);
+    win.mouseMove(evt);
 });
 
 //GAME LOOP
@@ -54,15 +56,15 @@ function gameProcess(){
 
 //FUNCTIONS
 
-function createGuis(game){
+function createGuis(){
     game.guis.push(
         new Gui('main-menu', {
             backgrounds: [
-                new Background(win.display,0,0,800,600, menu_background, true)
+                new Background(win.display,0,0,800,600, RES.menu_background, true)
             ],
             buttons: [
-                new Button(win.display,100,100,100,50,menu_button, 'No hej', true),
-                new Button(win.display,100,200,100,50,menu_button, 'No hejciaa', true)
+                new Button(win.display,null,100,100,50, RES.menu_button, 'No hej', true),
+                new Button(win.display,null,200,100,50, RES.menu_button, 'No hejciaa', true)
             ],
             inputs: [],
             sprites: []
