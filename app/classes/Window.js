@@ -34,4 +34,22 @@ export class Window {
             break;
         }
     }
+    mouseClick(evt){
+        let game = G.game;
+
+        switch(game.isStarted){
+            case true:
+            break;
+            case false:
+                game.guis[game.activeGui].elements.buttons.forEach((item,index) => {
+                    if(isContained(this.mx,this.my,item) && item.action != null){
+                        item.action();
+                    }
+                });
+            break;
+            default:
+                console.log('Bad game isStarted status');
+            break;
+        }   
+    }
 }

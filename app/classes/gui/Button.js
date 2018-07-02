@@ -1,10 +1,11 @@
 import {guiElement} from './guiElement.js';
 
 export class Button extends guiElement {
-    constructor(drawground, x1, y1, w, h, background, text, visible = true){
+    constructor(drawground, x1, y1, w, h, background, text, visible = true, action = null){
         super(drawground, x1, y1, w, h, visible);
         this.background = background;
         this.text = text;
+        this.action = action;
     }
     draw(){
         if(this.background != null){

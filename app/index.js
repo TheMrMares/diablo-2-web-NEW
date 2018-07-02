@@ -25,6 +25,9 @@ createGuis();
 window.addEventListener('mousemove', function(evt){
     win.mouseMove(evt);
 });
+window.addEventListener('click', function(evt){
+    win.mouseClick(evt);
+});
 
 //GAME LOOP
 function gameProcess(){
@@ -63,8 +66,22 @@ function createGuis(){
                 new Background(win.display,0,0,800,600, RES.menu_background, true)
             ],
             buttons: [
-                new Button(win.display,null,100,100,50, RES.menu_button, 'No hej', true),
+                new Button(win.display,null,100,100,50, RES.menu_button, 'No hej', true, function(){
+                    game.activeGui = 1;
+                }),
                 new Button(win.display,null,200,100,50, RES.menu_button, 'No hejciaa', true)
+            ],
+            inputs: [],
+            sprites: []
+        })
+    );
+    game.guis.push(
+        new Gui('main-menu', {
+            backgrounds: [
+                new Background(win.display,0,0,800,600, RES.menu_background, true)
+            ],
+            buttons: [
+                new Button(win.display,null,100,100,50, RES.menu_button, 'Inna karta', true),
             ],
             inputs: [],
             sprites: []
