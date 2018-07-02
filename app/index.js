@@ -69,7 +69,7 @@ function createGuis(){
                 new Button(win.display,null,100,100,50, RES.menu_button, 'No hej', true, function(){
                     game.activeGui = 1;
                 }),
-                new Button(win.display,null,200,100,50, RES.menu_button, 'No hejciaa', true)
+                new Button(win.display,null,200,100,50, RES.menu_button, 'No hejciaa', false)
             ],
             inputs: [],
             sprites: []
@@ -81,7 +81,9 @@ function createGuis(){
                 new Background(win.display,0,0,800,600, RES.menu_background, true)
             ],
             buttons: [
-                new Button(win.display,null,100,100,50, RES.menu_button, 'Inna karta', true),
+                new Button(win.display,null,100,100,50, RES.menu_button, 'Inna karta', true, function(){
+                    game.activeGui = 0;
+                }),
             ],
             inputs: [],
             sprites: []
