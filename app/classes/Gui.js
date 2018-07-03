@@ -2,12 +2,13 @@ export class Gui {
     constructor(name, elements){
         this.name = name;
 
-        const {backgrounds, buttons, inputs, sprites} = elements;
+        const {backgrounds, buttons, inputs, sprites, others} = elements;
         this.elements = {
             backgrounds: backgrounds,
             buttons: buttons,
             inputs: inputs,
-            sprites: sprites
+            sprites: sprites,
+            others: others
         }
     }
 }

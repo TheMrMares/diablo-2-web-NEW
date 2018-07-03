@@ -12,6 +12,7 @@ import {Gui} from './classes/Gui.js';
 
 import {Button} from './classes/gui/Button.js';
 import {Background} from './classes/gui/Background.js';
+import {characterTile} from './classes/gui/characterTile.js';
 
 
 //INIT
@@ -44,12 +45,14 @@ function gameProcess(){
             });
             game.guis[game.activeGui].elements.buttons.forEach((item,index) => {
                 item.draw();
-                item.write();
             });
             game.guis[game.activeGui].elements.inputs.forEach((item,index) => {
                 item.draw();
             });
             game.guis[game.activeGui].elements.sprites.forEach((item,index) => {
+                item.draw();
+            });
+            game.guis[game.activeGui].elements.others.forEach((item,index) => {
                 item.draw();
             });
         break;
@@ -68,44 +71,61 @@ function createGuis(){
                 new Background(win.display,0,0,null,null, RES.menu_background, true)
             ],
             buttons: [
-                new Button(win.display,{m:0},win.cy,200,30, RES.menu_button, 'Singleplayer', true, function(){
+                new Button(win.display,{m:0},{m:40},200,30, RES.menu_button, 'Singleplayer', true, function(){
                     game.activeGui = 1;
                 }),
-                new Button(win.display,{m:0},win.cy+40,200,30, RES.menu_button, 'Battlenet', true, function(){
+                new Button(win.display,{m:0},{m:80},200,30, RES.menu_button, 'Battlenet', true, function(){
                     game.activeGui = 0;
                 }),
-                new Button(win.display,{m:0},win.cy+80,200,30, RES.menu_button, 'Gateway', true, function(){
+                new Button(win.display,{m:0},{m:120},200,30, RES.menu_button, 'Gateway', true, function(){
                     game.activeGui = 0;
                 }),
-                new Button(win.display,{m:0},win.cy+120,200,30, RES.menu_button, 'Other multiplayer', true, function(){
+                new Button(win.display,{m:0},{m:160},200,30, RES.menu_button, 'Other multiplayer', true, function(){
                     game.activeGui = 0;
                 }),
-                new Button(win.display,{m:-55},win.cy+200,90,30, RES.menu_button, 'Other multiplayer', true, function(){
+                new Button(win.display,{m:-55},{m:240},90,30, RES.menu_button, 'Other multiplayer', true, function(){
                     game.activeGui = 0;
                 }),
-                new Button(win.display,{m:55},win.cy+200,90,30, RES.menu_button, 'Other multiplayer', true, function(){
+                new Button(win.display,{m:55},{m:240},90,30, RES.menu_button, 'Other multiplayer', true, function(){
                     game.activeGui = 0;
                 }),
-                new Button(win.display,{m:0},win.cy+240,200,30, RES.menu_button, 'Other multiplayer', true, function(){
+                new Button(win.display,{m:0},{m:280},200,30, RES.menu_button, 'Other multiplayer', true, function(){
                     game.activeGui = 0;
                 })
             ],
             inputs: [],
-            sprites: []
+            sprites: [],
+            others: []
         })
     );
     game.guis.push(
-        new Gui('main-menu', {
+        new Gui('character-choose', {
             backgrounds: [
-                new Background(win.display,{m:0},0,800,600, RES.menu_background, true)
+                new Background(win.display,0,0,null,null, RES.menu_background, true)
             ],
             buttons: [
-                new Button(win.display,{m:0},100,100,50, RES.menu_button, 'Inna karta', true, function(){
+                new Button(win.display,{m:0},{m:340},150,30, RES.menu_button, 'Create new character', true, function(){
+                    game.activeGui = 0;
+                }),
+                new Button(win.display,{m:-185},{m:340},150,30, RES.menu_button, 'Conversion impossible', true, function(){
+                    game.activeGui = 0;
+                }),
+                new Button(win.display,{m:185},{m:340},150,30, RES.menu_button, 'Delete character', true, function(){
+                    game.activeGui = 0;
+                }),
+                new Button(win.display,{m:-220},{m:380},80,30, RES.menu_button, 'Exit', true, function(){
+                    game.activeGui = 0;
+                }),
+                new Button(win.display,{m:220},{m:380},80,30, RES.menu_button, 'Ok', true, function(){
                     game.activeGui = 0;
                 }),
             ],
             inputs: [],
-            sprites: []
+            sprites: [],
+            others: [
+                new characterTile(win.display, {m:-140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
+                new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null)
+            ]
         })
     );
 }

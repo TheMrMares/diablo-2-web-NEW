@@ -10,20 +10,17 @@ export class Button extends guiElement {
     draw(){
         if(this.background != null){
             return [
-                this.drawground.drawImage(this.background, this.x1, this.y1, this.w, this.h)
+                this.drawground.drawImage(this.background, this.x1, this.y1, this.w, this.h),
+                this.drawground.fillStyle = 'black',
+                this.drawground.textAlign = 'center',
+                this.drawground.fillText(this.text, this.x1+this.w/2, this.y1+this.h/2)
             ];
         } else {
             return [
+                this.drawground.fillStyle = 'red',
                 this.drawground.fillRect(this.x1, this.y1, this.w, this.h)
             ];
         }
         
-    }
-    write(){
-        return [
-            this.drawground.fillStyle = 'black',
-            this.drawground.textAlign = 'center',
-            this.drawground.fillText(this.text, this.x1+this.w/2, this.y1+this.h/2)
-        ];
     }
 }
