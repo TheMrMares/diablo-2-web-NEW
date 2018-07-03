@@ -13,6 +13,7 @@ import {Gui} from './classes/Gui.js';
 import {Button} from './classes/gui/Button.js';
 import {Background} from './classes/gui/Background.js';
 import {characterTile} from './classes/gui/characterTile.js';
+import {characterHolder} from './classes/gui/characterHolder.js';
 
 
 //INIT
@@ -123,8 +124,17 @@ function createGuis(){
             inputs: [],
             sprites: [],
             others: [
-                new characterTile(win.display, {m:-140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
-                new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null)
+                new characterHolder(win.display, {m:0},{m:50}, 520, 505, null, [
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null)
+                ],true)
+                //new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null)
             ]
         })
     );
