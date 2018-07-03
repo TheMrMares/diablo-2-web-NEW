@@ -2,12 +2,15 @@
 @import 'templates.scss';
 
 html, body {
-    @extend %nomp;
     width: 100%;
     height: 100%;
     position: relative;
 }
+* {
+    @extend %nomp;
+    box-sizing: border-box;
+}
 canvas {
     @extend %all-center;
-    border: 1px solid $smooth;
+    //border: 1px solid $smooth;
 }

@@ -37,6 +37,8 @@ function gameProcess(){
             
         break;
         case false:
+            win.display.fillStyle = 'black';
+            win.display.fillRect(0,0,2000,2000);
             game.guis[game.activeGui].elements.backgrounds.forEach((item,index) => {
                 item.draw();
             });
@@ -63,13 +65,30 @@ function createGuis(){
     game.guis.push(
         new Gui('main-menu', {
             backgrounds: [
-                new Background(win.display,0,0,800,600, RES.menu_background, true)
+                new Background(win.display,0,0,null,null, RES.menu_background, true)
             ],
             buttons: [
-                new Button(win.display,null,100,100,50, RES.menu_button, 'No hej', true, function(){
+                new Button(win.display,{m:0},win.cy,200,30, RES.menu_button, 'Singleplayer', true, function(){
                     game.activeGui = 1;
                 }),
-                new Button(win.display,null,200,100,50, RES.menu_button, 'No hejciaa', false)
+                new Button(win.display,{m:0},win.cy+40,200,30, RES.menu_button, 'Battlenet', true, function(){
+                    game.activeGui = 0;
+                }),
+                new Button(win.display,{m:0},win.cy+80,200,30, RES.menu_button, 'Gateway', true, function(){
+                    game.activeGui = 0;
+                }),
+                new Button(win.display,{m:0},win.cy+120,200,30, RES.menu_button, 'Other multiplayer', true, function(){
+                    game.activeGui = 0;
+                }),
+                new Button(win.display,{m:-55},win.cy+200,90,30, RES.menu_button, 'Other multiplayer', true, function(){
+                    game.activeGui = 0;
+                }),
+                new Button(win.display,{m:55},win.cy+200,90,30, RES.menu_button, 'Other multiplayer', true, function(){
+                    game.activeGui = 0;
+                }),
+                new Button(win.display,{m:0},win.cy+240,200,30, RES.menu_button, 'Other multiplayer', true, function(){
+                    game.activeGui = 0;
+                })
             ],
             inputs: [],
             sprites: []
@@ -78,10 +97,10 @@ function createGuis(){
     game.guis.push(
         new Gui('main-menu', {
             backgrounds: [
-                new Background(win.display,0,0,800,600, RES.menu_background, true)
+                new Background(win.display,{m:0},0,800,600, RES.menu_background, true)
             ],
             buttons: [
-                new Button(win.display,null,100,100,50, RES.menu_button, 'Inna karta', true, function(){
+                new Button(win.display,{m:0},100,100,50, RES.menu_button, 'Inna karta', true, function(){
                     game.activeGui = 0;
                 }),
             ],

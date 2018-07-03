@@ -4,16 +4,22 @@ import RES from './../../resources.js';
 export class guiElement {
     constructor(drawground, x1, y1, w, h, visible = true){
         this.drawground = drawground;
-        if(x1 == null) {
-            x1 = G.win.w/2 - w/2;
+        if(typeof(x1) == 'object') {
+            let {m} = x1;
+            x1 = (G.win.w/2 - w/2) + m;
+        } else {
+            x1 = x1;
         }
-        if(y1 == null){
-            y1 = G.win.h/2 - h/2;
+        if(typeof(y1) == 'object'){
+            let {m} = y1;
+            y1 = (G.win.h/2 - h/2) + m;
+        } else {
+            y1 = y1;
         }
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x1 + w;
-        this.y2 = y1 + w;
+        this.y2 = y1 + h;
         this.w = w;
         this.h = h;
     }

@@ -9,6 +9,8 @@ export class Window {
         this.display = canvas.getContext('2d');
         this.w = canvas.getAttribute('width');
         this.h = canvas.getAttribute('height');
+        this.cx = canvas.getAttribute('width')/2;
+        this.cy = canvas.getAttribute('height')/2;
         this.mx = null;
         this.my = null;
     }
