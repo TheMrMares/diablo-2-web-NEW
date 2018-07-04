@@ -48,7 +48,7 @@ export class Window {
                         item.action();
                     }
                 });
-                game.guis[game.activeGui].elements.others.forEach((item,index) => {
+                game.guis[game.activeGui].elements.holders.forEach((item,index) => {
                     if(item.characters){
                         item.characters.forEach((obj,index) => {
                             if(isContained(this.mx, this.my, obj)){

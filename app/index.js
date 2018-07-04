@@ -11,6 +11,7 @@ import {Window} from './classes/Window.js';
 import {Gui} from './classes/Gui.js';
 
 import {Button} from './classes/gui/Button.js';
+import {Input} from './classes/gui/Input.js';
 import {Background} from './classes/gui/Background.js';
 import {characterTile} from './classes/gui/characterTile.js';
 import {characterHolder} from './classes/gui/characterHolder.js';
@@ -53,7 +54,7 @@ function gameProcess(){
             game.guis[game.activeGui].elements.sprites.forEach((item,index) => {
                 item.draw();
             });
-            game.guis[game.activeGui].elements.others.forEach((item,index) => {
+            game.guis[game.activeGui].elements.holders.forEach((item,index) => {
                 item.draw();
             });
         break;
@@ -96,7 +97,7 @@ function createGuis(){
             ],
             inputs: [],
             sprites: [],
-            others: []
+            holders: []
         })
     );
     game.guis.push(
@@ -106,7 +107,7 @@ function createGuis(){
             ],
             buttons: [
                 new Button(win.display,{m:0},{m:340},150,30, RES.menu_button, 'Create new character', true, function(){
-                    game.activeGui = 0;
+                    game.activeGui = 2;
                 }),
                 new Button(win.display,{m:-185},{m:340},150,30, RES.menu_button, 'Conversion impossible', true, function(){
                     game.activeGui = 0;
@@ -123,7 +124,7 @@ function createGuis(){
             ],
             inputs: [],
             sprites: [],
-            others: [
+            holders: [
                 new characterHolder(win.display, {m:0},{m:50}, 520, 505, null, [
                     new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
                     new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
@@ -134,8 +135,27 @@ function createGuis(){
                     new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
                     new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null)
                 ],true)
-                //new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null)
             ]
+        })
+    );
+    game.guis.push(
+        new Gui('character-create', {
+            backgrounds: [
+                new Background(win.display,0,0,null,null, RES.menu_background, true)
+            ],
+            buttons: [
+                new Button(win.display,{m:-220},{m:380},80,30, RES.menu_button, 'Exit', true, function(){
+                    game.activeGui = 0;
+                }),
+                new Button(win.display,{m:220},{m:380},80,30, RES.menu_button, 'Ok', true, function(){
+                    game.activeGui = 0;
+                }),
+            ],
+            inputs: [
+                new Input(win.display,{m:0},{m:320},150,30, null, true)
+            ],
+            sprites: [],
+            holders: []
         })
     );
 }
