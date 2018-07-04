@@ -8,7 +8,6 @@ export class characterHolder extends guiElement {
 
         let counter = 0;
         this.characters.forEach((item,index) => {
-            console.log(index%2);
             item.y1 = this.y1 + (item.h+5)*counter + 5;
             if(index%2 == 0){
                 item.x1 = this.x1+5;

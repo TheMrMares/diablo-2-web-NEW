@@ -12,6 +12,7 @@ export class characterTile extends guiElement {
         this.charLevel = charLevel;
         this.charType = charType;
 
+        this.isActive = false;
         this.action = action;
     }
     draw(){
@@ -19,8 +20,12 @@ export class characterTile extends guiElement {
         if(this.background != null){
             rt.push(this.drawground.drawImage(this.background, this.x1, this.y1, this.w, this.h))
         } else {
+            if(this.isActive == true){
+                rt.push(this.drawground.fillStyle = 'white');
+            } else {
+                rt.push(this.drawground.fillStyle = 'red');
+            }
             rt.push([
-                this.drawground.fillStyle = 'red',
                 this.drawground.fillRect(this.x1, this.y1, this.w, this.h)
             ]);
         }

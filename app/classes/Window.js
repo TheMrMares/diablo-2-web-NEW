@@ -48,6 +48,18 @@ export class Window {
                         item.action();
                     }
                 });
+                game.guis[game.activeGui].elements.others.forEach((item,index) => {
+                    if(item.characters){
+                        item.characters.forEach((obj,index) => {
+                            if(isContained(this.mx, this.my, obj)){
+                                item.characters.forEach((item,index) => {
+                                    item.isActive = false;
+                                });
+                                obj.isActive = true;
+                            }
+                        });
+                    }
+                });
             break;
             default:
                 console.log('Bad game isStarted status');
