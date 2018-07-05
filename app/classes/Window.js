@@ -22,8 +22,14 @@ export class Window {
             case false:
                 game.guis[game.activeGui].elements.inputs.forEach((item,index) => {
                     if(item.isFocused == true){
-                        let letter = String.fromCharCode(evt.keyCode);
-                        item.text = item.text + letter;
+                        if(evt.keyCode != 8){
+                            if(item.text.length < 5){
+                                let letter = String.fromCharCode(evt.keyCode);
+                                item.text = item.text + letter;
+                            }
+                        } else {
+                            item.text = item.text.slice(0,-1);
+                        }
                     }
                 });
             break;
@@ -68,8 +74,10 @@ export class Window {
                 game.guis[game.activeGui].elements.inputs.forEach((item,index) => {
                     if(isContained(this.mx, this.my, item)){
                         item.isFocused = true;
+                        item.cursor.isAnimated = true;
                     } else if(!isContained(this.mx, this.my, item)){
                         item.isFocused = false;
+                        item.cursor.isAnimated = false;
                     }
                 });
                 game.guis[game.activeGui].elements.holders.forEach((item,index) => {

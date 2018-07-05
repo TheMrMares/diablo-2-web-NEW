@@ -1,4 +1,6 @@
 import {guiElement} from './guiElement.js';
+import {Sprite} from './../Sprite.js';
+import RES from './../../resources.js';
 
 export class Input extends guiElement {
     constructor(drawground, x1, y1, w, h, background, visible = true, action = null){
@@ -6,6 +8,7 @@ export class Input extends guiElement {
         this.background = background;
         this.text = '';
         this.isFocused = false;
+        this.cursor = new Sprite(drawground, RES.text_cursor, this.x1+3, this.y1+5, 10, 20, 10,true);
     }
     draw(){
         if(this.visible == true){
@@ -19,16 +22,19 @@ export class Input extends guiElement {
                 ]);
             } else {
                 rt.push([
-                    this.drawground.fillStyle = 'red',
+                    this.drawground.fillStyle = 'yellow',
                     this.drawground.fillRect(this.x1, this.y1, this.w, this.h)
                 ]);
             }
             rt.push([
-            this.drawground.fillStyle = 'black',
-            this.drawground.textAlign = 'left',
-            this.drawground.textBaseline='middle',
-            this.drawground.fillText(this.text, this.x1+10, this.y1+this.h/2)
-        ]);
+                this.drawground.fillStyle = 'black',
+                this.drawground.textAlign = 'left',
+                this.drawground.textBaseline='middle',
+                this.drawground.fillText(this.text, this.x1+10, this.y1+this.h/2)
+            ]);
+            rt.push([
+                this.cursor.draw()
+            ]);
             return rt;
         }
     }

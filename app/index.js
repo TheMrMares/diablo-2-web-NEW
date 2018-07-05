@@ -9,6 +9,7 @@ import {createImage} from './functions/createImage.js';
 import {Game} from './classes/Game.js';
 import {Window} from './classes/Window.js';
 import {Gui} from './classes/Gui.js';
+import {Sprite} from './classes/Sprite.js';
 
 import {Button} from './classes/gui/Button.js';
 import {Input} from './classes/gui/Input.js';
