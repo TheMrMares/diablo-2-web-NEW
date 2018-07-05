@@ -22,6 +22,8 @@ export class guiElement {
         this.y2 = y1 + h;
         this.w = w;
         this.h = h;
+
+        this.visible = visible;
     }
     refreshCoordinates() {
         this.x2 = this.x1 + this.w;

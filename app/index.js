@@ -31,6 +31,9 @@ window.addEventListener('mousemove', function(evt){
 window.addEventListener('click', function(evt){
     win.mouseClick(evt);
 });
+window.addEventListener('keydown', function(evt){
+    win.keyPush(evt);
+});
 
 //GAME LOOP
 function gameProcess(){
@@ -126,14 +129,14 @@ function createGuis(){
             sprites: [],
             holders: [
                 new characterHolder(win.display, {m:0},{m:50}, 520, 505, null, [
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, null)
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null)
                 ],true)
             ]
         })

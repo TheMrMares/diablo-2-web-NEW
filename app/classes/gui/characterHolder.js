@@ -19,18 +19,20 @@ export class characterHolder extends guiElement {
         });
     }
     draw(){
-        let rt = [];
-        if(this.background != null){
-            rt.push(this.drawground.drawImage(this.background, this.x1, this.y1, this.w, this.h));
-        } else {
-            rt.push([
-                this.drawground.fillStyle = 'rgba(0,0,0,0.4)',
-                this.drawground.fillRect(this.x1, this.y1, this.w, this.h)
-            ]);
+        if(this.visible == true){
+            let rt = [];
+            if(this.background != null){
+                rt.push(this.drawground.drawImage(this.background, this.x1, this.y1, this.w, this.h));
+            } else {
+                rt.push([
+                    this.drawground.fillStyle = 'rgba(0,0,0,0.4)',
+                    this.drawground.fillRect(this.x1, this.y1, this.w, this.h)
+                ]);
+            }
+            rt.push(this.characters.map((item,index) => {
+                return item.draw();
+            }));
+            return rt;
         }
-        rt.push(this.characters.map((item,index) => {
-            return item.draw();
-        }));
-        return rt;
     }
 }

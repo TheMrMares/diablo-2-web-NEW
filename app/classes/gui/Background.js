@@ -12,15 +12,17 @@ export class Background extends guiElement {
         this.background = background;
     }
     draw(){
-        let rt = [];
-        if(this.background != null){
-            rt.push(this.drawground.drawImage(this.background, this.x1, this.y1, this.w, this.h));
-        } else {
-            rt.push([
-                this.drawground.fillStyle = 'red',
-                this.drawground.fillRect(this.x1, this.y1, this.w, this.h)
-            ]);
+        if(this.visible == true){
+            let rt = [];
+            if(this.background != null){
+                rt.push(this.drawground.drawImage(this.background, this.x1, this.y1, this.w, this.h));
+            } else {
+                rt.push([
+                    this.drawground.fillStyle = 'red',
+                    this.drawground.fillRect(this.x1, this.y1, this.w, this.h)
+                ]);
+            }
+            return rt;
         }
-        return rt;
     }
 }

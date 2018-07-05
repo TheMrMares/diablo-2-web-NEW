@@ -16,38 +16,40 @@ export class characterTile extends guiElement {
         this.action = action;
     }
     draw(){
-        let rt = [];
-        if(this.background != null){
-            rt.push(this.drawground.drawImage(this.background, this.x1, this.y1, this.w, this.h))
-        } else {
-            if(this.isActive == true){
-                rt.push(this.drawground.fillStyle = 'white');
+        if(this.visible == true){
+            let rt = [];
+            if(this.background != null){
+                rt.push(this.drawground.drawImage(this.background, this.x1, this.y1, this.w, this.h))
             } else {
-                rt.push(this.drawground.fillStyle = 'red');
+                if(this.isActive == true){
+                    rt.push(this.drawground.fillStyle = 'white');
+                } else {
+                    rt.push(this.drawground.fillStyle = 'red');
+                }
+                rt.push([
+                    this.drawground.fillRect(this.x1, this.y1, this.w, this.h)
+                ]);
+            }
+            if(this.icon != null){
+                var textMod = this.icon.width;
+                rt.push(this.drawground.drawImage(this.icon, this.x1, this.y1, this.icon.width, this.icon.height))
+            } else {
+                var textMod = this.w*0.2;
+                rt.push([
+                    this.drawground.fillStyle = 'green',
+                    this.drawground.fillRect(this.x1+10, this.y1+10, this.w*0.2, this.h-20)
+                ]);
             }
             rt.push([
-                this.drawground.fillRect(this.x1, this.y1, this.w, this.h)
+                this.drawground.font='10px Arial',
+                this.drawground.fillStyle = 'black',
+                this.drawground.textAlign = 'left',
+                this.drawground.textBaseline='top',
+                this.drawground.fillText(this.charName, this.x1+20+textMod, this.y1+10),
+                this.drawground.fillText(this.charLevel, this.x1+20+textMod, this.y1+30),
+                this.drawground.fillText(this.charType, this.x1+20+textMod, this.y1+50)
             ]);
+            return rt;
         }
-        if(this.icon != null){
-            var textMod = this.icon.width;
-            rt.push(this.drawground.drawImage(this.icon, this.x1, this.y1, this.icon.width, this.icon.height))
-        } else {
-            var textMod = this.w*0.2;
-            rt.push([
-                this.drawground.fillStyle = 'green',
-                this.drawground.fillRect(this.x1+10, this.y1+10, this.w*0.2, this.h-20)
-            ]);
-        }
-        rt.push([
-            this.drawground.font='10px Arial',
-            this.drawground.fillStyle = 'black',
-            this.drawground.textAlign = 'left',
-            this.drawground.textBaseline='top',
-            this.drawground.fillText(this.charName, this.x1+20+textMod, this.y1+10),
-            this.drawground.fillText(this.charLevel, this.x1+20+textMod, this.y1+30),
-            this.drawground.fillText(this.charType, this.x1+20+textMod, this.y1+50)
-        ]);
-        return rt;
     }
 }
