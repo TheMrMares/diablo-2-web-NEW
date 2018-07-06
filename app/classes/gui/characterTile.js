@@ -1,6 +1,6 @@
 import {guiElement} from './guiElement.js';
 
-export class characterTile extends guiElement {
+export class CharacterTile extends guiElement {
     constructor(drawground, x1, y1, w, h, background, icon, text, visible = true, action = null){
         super(drawground, x1, y1, w, h, visible);
 

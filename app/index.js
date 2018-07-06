@@ -14,8 +14,9 @@ import {Sprite} from './classes/Sprite.js';
 import {Button} from './classes/gui/Button.js';
 import {Input} from './classes/gui/Input.js';
 import {Background} from './classes/gui/Background.js';
-import {characterTile} from './classes/gui/characterTile.js';
-import {characterHolder} from './classes/gui/characterHolder.js';
+import {CharacterTile} from './classes/gui/CharacterTile.js';
+import {CharacterHolder} from './classes/gui/CharacterHolder.js';
+import {Check} from './classes/gui/Check.js';
 
 
 //INIT
@@ -53,6 +54,9 @@ function gameProcess(){
                 item.draw();
             });
             game.guis[game.activeGui].elements.inputs.forEach((item,index) => {
+                item.draw();
+            });
+            game.guis[game.activeGui].elements.checks.forEach((item,index) => {
                 item.draw();
             });
             game.guis[game.activeGui].elements.sprites.forEach((item,index) => {
@@ -100,6 +104,7 @@ function createGuis(){
                 })
             ],
             inputs: [],
+            checks: [],
             sprites: [],
             holders: []
         })
@@ -127,17 +132,18 @@ function createGuis(){
                 }),
             ],
             inputs: [],
+            checks: [],
             sprites: [],
             holders: [
-                new characterHolder(win.display, {m:0},{m:50}, 520, 505, null, [
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
-                    new characterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null)
+                new CharacterHolder(win.display, {m:0},{m:50}, 520, 505, null, [
+                    new CharacterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new CharacterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new CharacterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new CharacterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new CharacterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new CharacterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new CharacterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null),
+                    new CharacterTile(win.display, {m:140},{m:0}, 250, 120, null, null, {charName: 'Trolo', charLevel: 'Level 22 Druid', charType: 'Imossible'}, true, null)
                 ],true)
             ]
         })
@@ -149,7 +155,7 @@ function createGuis(){
             ],
             buttons: [
                 new Button(win.display,{m:-220},{m:380},80,30, RES.menu_button, 'Exit', true, function(){
-                    game.activeGui = 0;
+                    game.activeGui = 1;
                 }),
                 new Button(win.display,{m:220},{m:380},80,30, RES.menu_button, 'Ok', true, function(){
                     game.activeGui = 0;
@@ -157,6 +163,9 @@ function createGuis(){
             ],
             inputs: [
                 new Input(win.display,{m:0},{m:320},150,30, null, true)
+            ],
+            checks: [
+                new Check(win.display,{m:0},{m:360},150,20, RES.check_background, RES.check_checked, 'Hardcore', false, true)
             ],
             sprites: [],
             holders: []

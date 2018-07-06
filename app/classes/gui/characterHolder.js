@@ -1,6 +1,6 @@
 import {guiElement} from './guiElement.js';
 
-export class characterHolder extends guiElement {
+export class CharacterHolder extends guiElement {
     constructor(drawground, x1, y1, w, h, background, characters, visible = true){
         super(drawground, x1, y1, w, h, visible);
         this.background = background;

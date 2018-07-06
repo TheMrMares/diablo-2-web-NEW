@@ -80,6 +80,21 @@ export class Window {
                         item.cursor.isAnimated = false;
                     }
                 });
+                game.guis[game.activeGui].elements.checks.forEach((item,index) => {
+                    if(isContained(this.mx, this.my, item)){
+                        switch(item.isChecked){
+                            case true:
+                                item.isChecked = false;
+                            break;
+                            case false:
+                                item.isChecked = true;
+                            break;
+                            default:
+                                console.log('Bad game isStarted status');
+                            break;
+                        }
+                    }
+                });
                 game.guis[game.activeGui].elements.holders.forEach((item,index) => {
                     if(item.characters){
                         item.characters.forEach((obj,index) => {
